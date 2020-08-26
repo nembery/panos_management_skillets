@@ -1,7 +1,7 @@
 name: panos_management_deactivate_license
 label: Deactivate VM-Series License
 description: |
-    Deactivates a license from a PAN-OS VM-Series instance.
+    Deactivates all licenses from a PAN-OS VM-Series instance.
 type: python3
 labels:
     collection: PAN-OS Device Management
@@ -29,4 +29,3 @@ snippets:
 -   name: script
     file: ../../deactivate_license.py
     input_type: cli
-snippet_path: /Users/nembery/.pan_cnc/panhandler/repositories/panos_management_skillets/.skillets/deactivate_license
