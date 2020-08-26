@@ -1,43 +1,36 @@
 name: panos_management_update_dynamic_content
-
-label: 'Update and install Dynamic Content to latest version'
-
+label: Update and install Dynamic Content to latest version
 description: |
-  Checks for updates to dynamic content and installs the latest if necessary.
-
+    Checks for updates to dynamic content and installs the latest if necessary.
 type: python3
-
 labels:
-  collection:
-    - PAN-OS Device Management
-
+    collection: PAN-OS Device Management
 variables:
-  - name: target_username
+-   name: target_ip
+    description: PAN-OS Device IP / Hostname
+    default: 10.10.10.10
+    type_hint: fqdn_or_ip
+    help_text: ''
+-   name: target_username
     description: Username
     default: admin
     type_hint: text
-  - name: target_password
+-   name: target_password
     description: Password
-    default:
+    default: null
     type_hint: password
-  - name: target_ip
-    description: PAN-OS Device IP / Hostname
-    default: 10.10.10.10
-    type_hint: password
-  - name: content_type
+-   name: content_type
     description: Dynamic Content Type
-    default: content
+    default: Content
     type_hint: dropdown
     dd_list:
-      - key: content
+    -   key: content
         value: Content
-      - key: anti-virus
+    -   key: anti-virus
         value: Anti-Virus
-      - key: wildfire
+    -   key: wildfire
         value: Wildfire
-
-
 snippets:
-  - name: script
+-   name: script
     file: ../../update_dynamic_content.py
     input_type: cli
