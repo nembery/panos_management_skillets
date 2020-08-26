@@ -1,0 +1,32 @@
+name: panos_management_perform_backup
+
+label: 'Perform a Backup of the Running Configuration'
+
+description: |
+  Performs a configuration backup. The resulting saved file has the format 'config-timestamp.xml'
+
+type: python3
+
+labels:
+  collection:
+    - PAN-OS Device Management
+
+variables:
+  - name: target_username
+    description: Username
+    default: admin
+    type_hint: text
+  - name: target_password
+    description: Password
+    default:
+    type_hint: password
+  - name: target_ip
+    description: PAN-OS Device IP / Hostname
+    default: 10.10.10.10
+    type_hint: password
+
+
+snippets:
+  - name: script
+    file: ../../backup_configuration.py
+    input_type: cli
