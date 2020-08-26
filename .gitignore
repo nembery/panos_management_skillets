@@ -1,2 +1,12 @@
-venv
-.idea/
+# ignore all files created by panhandler
+# python3 virtual env init flag
+.venv
+.python3_init_done
+# terraform state and plan files
+terraform.tfstate*
+.cnc_plan
+# uploaded files
+.cnc_tmp_*
+# local files
+.idea
+venv*
