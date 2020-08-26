@@ -1,35 +1,30 @@
 name: panos_management_activate_license
-
-label: 'Fetch and install license via an Auth Code'
-
+label: Fetch and install license via an Auth Code
 description: |
-  Ensures the given PAN-OS Device is properly licensed, and if not will fetch the licenses using the given Auth Code
-
+    Ensures the given PAN-OS Device is properly licensed, and if not will fetch the licenses using the given Auth Code
 type: python3
-
 labels:
-  collection:
-    - PAN-OS Device Management
-
+    collection: PAN-OS Device Management
 variables:
-  - name: target_username
+-   name: target_ip
+    description: PAN-OS Device IP / Hostname
+    default: 10.10.10.10
+    type_hint: fqdn_or_ip
+    help_text: ''
+-   name: target_username
     description: Username
     default: admin
     type_hint: text
-  - name: target_password
+-   name: target_password
     description: Password
-    default:
+    default: null
     type_hint: password
-  - name: target_ip
-    description: PAN-OS Device IP / Hostname
-    default: 10.10.10.10
-    type_hint: password
-  - name: auth_code
+-   name: auth_code
     description: Auth Code
     default: IBADCODE
     type_hint: text
-
+    help_text: VM-Series Auth Code from support.paloaltonetworks.com
 snippets:
-  - name: script
+-   name: script
     file: ../../activate_license.py
     input_type: cli
